@@ -1,0 +1,9 @@
+﻿<Application x:Class="RiskLens.App.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:RiskLens.App">
+    <!-- 注意：不写 StartupUri，启动逻辑在 App.xaml.cs 的 OnStartup -->
+    <Application.Resources>
+        <local:LevelToBrushConverter x:Key="LevelBrush"/>
+    </Application.Resources>
+</Application>

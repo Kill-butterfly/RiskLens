@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="RiskLens.App.Views.SnapshotEditorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
+            <Button Content="💾 保存" Command="{Binding SaveCommand}"
+                    CommandParameter="{Binding DataContext.CompanyName, RelativeSource={RelativeSource AncestorType=Window}}"
+                    Padding="16,6" Margin="0,0,8,0"/>
+            <TextBlock Text="每行 = 一个年度。数值单位与年报一致（元/万元均可，但要统一）。"
+                       Foreground="Gray" VerticalAlignment="Center"/>
+        </StackPanel>
+        <DataGrid ItemsSource="{Binding Rows}" AutoGenerateColumns="False"
+                  CanUserAddRows="True" CanUserDeleteRows="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="年度" Binding="{Binding Year}" Width="60"/>
+                <DataGridTextColumn Header="营业收入" Binding="{Binding Revenue}"/>
+                <DataGridTextColumn Header="毛利" Binding="{Binding GrossProfit}"/>
+                <DataGridTextColumn Header="净利润" Binding="{Binding NetProfit}"/>
+                <DataGridTextColumn Header="经营现金流" Binding="{Binding OperatingCashFlow}"/>
+                <DataGridTextColumn Header="总资产" Binding="{Binding TotalAssets}"/>
+                <DataGridTextColumn Header="总负债" Binding="{Binding TotalLiabilities}"/>
+                <DataGridTextColumn Header="流动资产" Binding="{Binding CurrentAssets}"/>
+                <DataGridTextColumn Header="流动负债" Binding="{Binding CurrentLiabilities}"/>
+                <DataGridTextColumn Header="存货" Binding="{Binding Inventory}"/>
+                <DataGridTextColumn Header="应收账款" Binding="{Binding Receivables}"/>
+                <DataGridTextColumn Header="商誉" Binding="{Binding Goodwill}"/>
+                <DataGridTextColumn Header="有息负债" Binding="{Binding TotalDebt}"/>
+                <DataGridTextColumn Header="利息费用" Binding="{Binding InterestExpense}"/>
+                <DataGridTextColumn Header="EBIT" Binding="{Binding Ebit}"/>
+                <DataGridTextColumn Header="留存收益" Binding="{Binding RetainedEarnings}"/>
+                <DataGridTextColumn Header="数据来源" Binding="{Binding Source}" Width="160"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</UserControl>

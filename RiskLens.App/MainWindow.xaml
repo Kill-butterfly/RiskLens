@@ -1,0 +1,33 @@
+﻿<Window x:Class="RiskLens.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:RiskLens.App.ViewModels"
+        xmlns:views="clr-namespace:RiskLens.App.Views"
+        Title="RiskLens 投资风险分析" Width="1280" Height="820">
+    <DockPanel>
+        <Border DockPanel.Dock="Top" Padding="10" Background="#F0F0F0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="公司名称：" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding CompanyName, UpdateSourceTrigger=PropertyChanged}"
+                         Width="300" VerticalAlignment="Center"/>
+                <TextBlock Text="  （输入后自动加载，录入页保存后刷新仪表板）"
+                           Foreground="Gray" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        <TabControl Margin="6">
+            <TabItem Header="① 数据录入">
+                <views:SnapshotEditorView DataContext="{Binding SnapshotEditor}"/>
+            </TabItem>
+            <TabItem Header="② 风险仪表板">
+                <views:DashboardView DataContext="{Binding Dashboard}"/>
+            </TabItem>
+            <TabItem Header="③ AI 抽取">
+                <views:ExtractionView DataContext="{Binding Extraction}"/>
+            </TabItem>
+            <TabItem Header="④ 压力测试">
+                <views:StressView DataContext="{Binding Stress}"/>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</Window>

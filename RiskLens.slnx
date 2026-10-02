@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="RiskLens.Ai/RiskLens.Ai.csproj" />
+  <Project Path="RiskLens.App/RiskLens.App.csproj" />
+  <Project Path="RiskLens.Core.Tests/RiskLens.Core.Tests.csproj" />
+  <Project Path="RiskLens.Core/RiskLens.Core.csproj" />
+  <Project Path="RiskLens.Data/RiskLens.Data.csproj" />
+</Solution>
