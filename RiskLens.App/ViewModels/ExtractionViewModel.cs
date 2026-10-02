@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.Json;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using RiskLens.Ai;
 using RiskLens.Data;
 using RiskLens.Data.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
 
 
 namespace RiskLens.App.ViewModels
@@ -60,9 +61,17 @@ namespace RiskLens.App.ViewModels
                     ResultText = $"❌ 抽取失败：{result.Error}";
                 }
             }
+            catch (InvalidOperationException ex)
+            {
+                ResultText = $"❌ {ex.Message}";
+            }
+            catch (HttpRequestException ex)
+            {
+                ResultText = $"❌ 连接失败：{ex.Message}";
+            }
             catch (Exception ex)
             {
-                ResultText = $"❌ 调用本地模型失败：{ex.Message}\n请确认 Ollama 已启动（ollama serve）且已拉取模型。";
+                ResultText = $"❌ 未预期错误：{ex.GetType().Name}：{ex.Message}";
             }
             finally { IsBusy = false; }
         }

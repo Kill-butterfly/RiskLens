@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="clr-namespace:RiskLens.App.ViewModels"
         xmlns:views="clr-namespace:RiskLens.App.Views"
-        Title="RiskLens 投资风险分析" Width="1280" Height="820">
+        Title="RiskLens 投资风险分析" Width="1280" Height="820" Background="#FF408B32">
     <DockPanel>
         <Border DockPanel.Dock="Top" Padding="10" Background="#F0F0F0">
             <StackPanel Orientation="Horizontal">
